@@ -24,6 +24,6 @@ export async function removeValue(key){
     try{
         await AsyncStorage.removeItem('@'+key);
     }catch(e){
-        // remove error
+       console.log(e);
     }
 }

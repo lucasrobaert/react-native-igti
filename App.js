@@ -7,7 +7,7 @@ import HomeScreen from "./src/screens/Home";
 import { TouchableOpacity,StyleSheet,View } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons'; 
 import {AppContext,appReducer,initialState} from "./src/context/AppContext"
 import {ManageThemeProvider} from './src/hooks/theme';
 
@@ -34,7 +34,7 @@ const TabBar = ({navigation,state}) => {
               color={state.index===1?"blue":"black"} />
         </TouchableOpacity>
         <TouchableOpacity onPress={()=>navigation.navigate("NewShow")}>
-          <Ionicons name="md-add" size={30} color="black"
+          <Ionicons name="md-options" size={30} color="black"
               color={state.index===2?"blue":"black"} />
         </TouchableOpacity>
       </>

@@ -1,16 +1,13 @@
 import React from 'react';
 import {StyleSheet, View, Text} from "react-native";
 import ShowDetails from '../components/detail/ShowDetail';
-import ShowList from '../components/list/ShowList';
+import ShowList from '../components/list';
 
 const Shows = () => {
     return(
         <View style={styles.parentStyle}>
             <View style={styles.listStyle}>
                 <ShowList/>
-            </View>
-            <View style={styles.detailsStyle}>
-                <ShowDetails/>
             </View>
         </View>
     );
