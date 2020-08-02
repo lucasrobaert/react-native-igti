@@ -9,6 +9,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import {AppContext,appReducer,initialState} from "./src/context/AppContext"
+import {ManageThemeProvider} from './src/hooks/theme';
 
 const TabNav = createBottomTabNavigator();
 
@@ -44,15 +45,17 @@ function App() {
   const [state,dispatch] = useReducer(appReducer,initialState);
   return (
 
-    <AppContext.Provider value={{state,dispatch}}>
-      <NavigationContainer>
-        <TabNav.Navigator tabBar={props=> <TabBar {...props}/>}>
-          <TabNav.Screen name={"Home"} component={HomeScreen}/>
-          <TabNav.Screen name={"Shows"} component={ShowsScreen}/>
-          <TabNav.Screen name={"NewShow"} component={NewShowScreen}/>
-        </TabNav.Navigator>
-      </NavigationContainer>
-    </AppContext.Provider>
+    <ManageThemeProvider>
+        <AppContext.Provider value={{state,dispatch}}>
+            <NavigationContainer>
+                <TabNav.Navigator tabBar={props=> <TabBar {...props}/>}>
+                <TabNav.Screen name={"Home"} component={HomeScreen}/>
+                <TabNav.Screen name={"Shows"} component={ShowsScreen}/>
+                <TabNav.Screen name={"NewShow"} component={NewShowScreen}/>
+                </TabNav.Navigator>
+            </NavigationContainer>
+        </AppContext.Provider>
+    </ManageThemeProvider>
   )
 }
 
