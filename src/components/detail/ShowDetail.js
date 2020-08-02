@@ -4,23 +4,24 @@ import {AppContext} from "../../context/AppContext"
 
 const ShowDetail = ()=>{
     const {state} = useContext(AppContext);
-    const {name, country, network,image_thumbnail_path} = 
+    console.log(state.showList.find(item=>item.id===state.itemSelected))
+    const {name, origin_country, overview,poster_path} = 
                             state.itemSelected?
                             state.showList.find(item=>item.id===state.itemSelected)
                                           :
-                            {name:"",country:"",network:"",
-                                            image_thumbnail_path:""};
+                            {name:"",origin_country:"",overview:"",
+                            poster_path:""};
     return (
         <>
         <View style={styles.parentStyle}>
             <View style={styles.viewStyle}>
             <Text>Nome:{name}</Text>
-            <Text>Country:{country}</Text>
-            <Text>Network:{network}</Text>
+            <Text>Country:{origin_country}</Text>
+            <Text>Network:{overview}</Text>
             <Image
             style={styles.pictureStyle}
             resizeMode={"contain"}
-            source={image_thumbnail_path?{uri:image_thumbnail_path}:null}
+            source={poster_path?{uri:`https://image.tmdb.org/t/p/w500${poster_path}`}:null}
             />
             </View>
         </View>
